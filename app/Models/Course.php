@@ -8,8 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id','status'];
+    protected $withCount = ['studens','reviews'];
+
+    public function getRatingAttribute()
+    {
+        if ($this->reviews_count) {
+            # code...
+            return round($this->reviews->avg('rating'), 1);
+        }else{
+            return 5;
+        }
+    }
 
     const BORRADOR = 1;
     const REVISION = 2;
@@ -69,7 +79,7 @@ class Course extends Model
     //relacion uno a uno polimorfica
     public function image()
     {
-        return $this->morphOne(Image::class, 'imageable');
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 
     //relacion atraves de
