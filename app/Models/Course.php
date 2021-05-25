@@ -25,6 +25,11 @@ class Course extends Model
     const REVISION = 2;
     const PUBLICADO = 3;
 
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+
     //relacion uno a muchos
     public function reviews()
     {

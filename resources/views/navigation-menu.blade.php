@@ -4,6 +4,11 @@
             'name' => 'Home',
             'route' => route('home'),
             'active' => request()->routeIs('home')
+        ],
+        [
+            'name' => 'Cursos',
+            'route' => route('courses.index'),
+            'active' => request()->routeIs('courses.index')
         ]
         
 ];
@@ -17,7 +22,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="{{asset('img/home/Imagen1.png')}}" class="w-28 object-cover" alt="">
                     </a>
                 </div>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('cursos', function () {
-    return "Aqui se mostrará la lista de cursos";
-})->name('course.index');
+Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
+
+Route::get('cursos/{course}', function ($course) {
+    return "Aqui se mostrara tu curso";
+})->name('courses.show');
