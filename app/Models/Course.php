@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-    protected $guarded = ['id','status'];
-    protected $withCount = ['studens','reviews'];
+    protected $guarded = ['id', 'status'];
+    protected $withCount = ['studens', 'reviews'];
 
     public function getRatingAttribute()
     {
         if ($this->reviews_count) {
             # code...
             return round($this->reviews->avg('rating'), 1);
-        }else{
+        } else {
             return 5;
         }
     }
@@ -44,7 +44,7 @@ class Course extends Model
         return "slug";
     }
 
-    //relacion uno a muchos
+//relacion uno a muchos
     public function reviews()
     {
         return $this->hasMany(Review::class);

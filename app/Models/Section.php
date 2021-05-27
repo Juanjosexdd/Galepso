@@ -11,7 +11,7 @@ class Section extends Model
     protected $guarded = ['id'];
 
     //relacion uno a muchos
-    public function lesson()
+    public function lessons()
     {
         return $this->hasMany(Lesson::class);
     }
