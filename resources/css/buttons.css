@@ -12,7 +12,7 @@
 }
 
 .btn-danger {
-    @apply bg-red-800 text-white;
+    @apply bg-red-600 text-white;
 }
 .btn-danger:hover {
     @apply bg-red-700;
