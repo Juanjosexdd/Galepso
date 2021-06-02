@@ -9,7 +9,7 @@ class Course extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'status'];
-    protected $withCount = ['studens', 'reviews'];
+    protected $withCount = ['students', 'reviews'];
 
     public function getRatingAttribute()
     {
@@ -90,7 +90,7 @@ class Course extends Model
     }
 
     //relacion mmuchos a muchos
-    public function studens()
+    public function students()
     {
         return $this->belongsToMany(User::class);
     }

@@ -23,6 +23,6 @@ class CoursePolicy
 
     public function enrolled(User $user, Course $course)
     {
-        return $course->studens->contains($user->id);
+        return $course->students->contains($user->id);
     }
 }

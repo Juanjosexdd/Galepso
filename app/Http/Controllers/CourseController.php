@@ -9,7 +9,7 @@ class CourseController extends Controller
 {
     public function index()
     {
-        return view('course.index');
+        return view('courses.index');
     }
 
     public function show(Course $course)
@@ -23,7 +23,7 @@ class CourseController extends Controller
                            ->latest('id')    
                            ->take(5)         
                            ->get();
-        return view('course.show', compact('course','similares'));
+        return view('courses.show', compact('course','similares'));
     }
 
     public function enrolled(Course $course)
@@ -31,4 +31,6 @@ class CourseController extends Controller
         $course->studens()->attach(auth()->user()->id);
         return redirect()->route('courses.status', $course);
     }
+
+
 }

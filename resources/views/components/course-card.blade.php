@@ -27,7 +27,7 @@
             </ul>
             <p class="text-sm text-gray-500 ml-auto">
                 <i class="fas fa-users"></i>
-                ({{$course->studens_count}})
+                ({{$course->students_count}})
             </p>
         </div>
         <div class="flex justify-center mt-4">
